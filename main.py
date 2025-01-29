@@ -1,21 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, request
+from basic import basic 
 
 app = Flask(__name__)
+app.register_blueprint(basic, url_prefix='/basic')
 
+@app.route('/')
+def showz():
+    return 'z'
 
-@app.route("/")
-@app.route("/index")
-def home():
-    return render_template("index.html")
-
-@app.route('/st')
-def showzm():
-	return 'zm'
-
-@app.route("/<name>")
-def user(name):
-	return render_template('i1.html', name=name)
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
