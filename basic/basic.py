@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template,  redirect, url_for, request
 
-basic = Blueprint('basic', __name__)
+
+basic = Blueprint('basic', __name__, template_folder='templates')
 
 @basic.route('/')
 def home():
@@ -18,7 +19,7 @@ def user(name):
 def getinfo():
     if request.method == 'POST':
         info = request.form['info']
-        return redirect(url_for('getinfo', info=info))
+        return redirect(url_for('basic.getinfo', info=info))
     else:
         return render_template('info.html')
     
