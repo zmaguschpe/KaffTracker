@@ -1,7 +1,8 @@
 Flask basic framework blueprint template wit SQL-Alchemie db
-no user auth, no wtf
+no user auth
 
 pip install -r requirements.txt
 
 #flask
-#SQL-Alchemie
+#SQL-Alchemiepip
+#Flask-WTF
