@@ -6,3 +6,7 @@ h1 {
 #byid{
     font-size: 30px;
 }
+
+body {
+    margin-left: 3em;
+}

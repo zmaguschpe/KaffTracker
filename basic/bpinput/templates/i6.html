@@ -1,13 +1,18 @@
-{% extends "base.html" %}
+{% extends "bpbase.html" %}
 {% block title %}Input{% endblock %}
 
 {% block content %}
-<form action="#" method="post">
-	<p>Info:</p>
-	<p><input type="text" name="info" /></p>
-	<p><input type="submit" value="submit"/></p>
+<form action="" method="post" novalidate>
+	{{ form.hidden_tag() }}
+	<p>
+		{{ form.info.label }}<br>
+		{{ form.info(size=32) }}
+	</p>
+	<p>{{ form.submit() }}</p>
 </form>
+{% endblock %}
 
-<p>vv{{info}}</p>
+{% block content2 %}
 
 {% endblock %}
+
