@@ -16,19 +16,22 @@ def create_app():
     from .models import Info
 
 
-    from .vi.vi import vi
-    app.register_blueprint(vi, url_prefix='/vi')
+    from .bpinput.views import bpinput
+    app.register_blueprint(bpinput, url_prefix='/')
 
     from .bp2.bp2views import bp2
     app.register_blueprint(bp2, url_prefix='/bp2')
 
-    from .getdata.views import getdata
-    app.register_blueprint(getdata, url_prefix='/')
+    from .bpshow.views import bpshow
+    app.register_blueprint(bpshow, url_prefix='/')
+
+    from .errors import bp as errors_bp
+    app.register_blueprint(errors_bp)
 
 
     
     
-    @app.route('/')
+    @app.route('/z')
     def showz():
         return 'z'
     
