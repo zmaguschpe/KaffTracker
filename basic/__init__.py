@@ -13,12 +13,20 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
-    from .basic import basic
-    app.register_blueprint(basic, url_prefix='/basic')
-    from .views import views
-    app.register_blueprint(views, url_prefix='/views')
-
     from .models import Info
+
+
+    from .vi.vi import vi
+    app.register_blueprint(vi, url_prefix='/vi')
+
+    from .bp2.bp2views import bp2
+    app.register_blueprint(bp2, url_prefix='/bp2')
+
+    from .getdata.views import getdata
+    app.register_blueprint(getdata, url_prefix='/')
+
+
+    
     
     @app.route('/')
     def showz():
