@@ -13,7 +13,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
-    from .models import Info
+    
 
 
     from .bpinput.views import bpinput
