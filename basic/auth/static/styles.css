@@ -1,0 +1,33 @@
+h1 {
+    color:darkblue;
+    text-align: center;
+}
+
+#byid1 {
+    text-align: right;
+    color: red;
+  }
+
+body {
+    margin-left: 3em;
+}
+.byclass {
+    text-align: center;
+  }
+
+
+.center {
+    text-align: center;
+  }
+.form-group {
+
+}
+
+.form-control{
+    background-color: #82f4ca;
+    color: black;
+}
+
+.button1 {
+
+}
