@@ -3,15 +3,15 @@ from wtforms import StringField, PasswordField, SubmitField #BooleanField
 from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
-    username = StringField('Info', validators=[DataRequired()])
-    password = PasswordField('Info', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
     # pw validate hier?
     #bool remember
     submit = SubmitField('submit')
 
 class RegisterForm(FlaskForm):
-    username = StringField('Info', validators=[DataRequired()])
-    password = PasswordField('Info', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
     #validate >1
     submit = SubmitField('submit')
     

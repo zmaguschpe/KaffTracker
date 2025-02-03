@@ -3,16 +3,16 @@ from ..models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from .. import db 
 from flask_login import login_user, login_required, logout_user, current_user
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 
 auth = Blueprint('auth', __name__, template_folder='templates')
 
 @auth.route('/', methods=['GET', 'POST'])
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+# if current_user not loged in
     form = LoginForm()
-    if request.method == 'POST':
-    #if form.validate_on_submit():
+    if request.method == 'POST'and form.validate_on_submit():
         username = form.username.data
         password = form.password.data
         user = User.query.filter_by(username=username).one()
@@ -21,7 +21,7 @@ def login():
             if check_password_hash(user.password, password):
                 login_user(user, remember=True)
                 #flash("Logged in successfully.", "success")
-                return render_template("cu.html", user=current_user)
+                return redirect(url_for('auth.profile'))
                 #return redirect(request.args.get("next") or url_for(".home"))
             else:
                 return '<p>Incorrect password</p>'
@@ -32,8 +32,8 @@ def login():
 
 
 @auth.route('/profile')
-def showuser():
-    return render_template("cu.html", user=current_user)
+def profile():
+    return render_template("profile.html", user=current_user)
 
 
 @auth.route('/logout')
@@ -44,8 +44,8 @@ def logout():
 
 
 @auth.route('/register', methods=['GET', 'POST'])
-def sign_up():
-    form = LoginForm()
+def register():
+    form = RegisterForm()
     if request.method == 'POST':
         username = form.username.data
         password = form.password.data
@@ -64,5 +64,5 @@ def sign_up():
             db.session.commit()
             login_user(new_user, remember=True)
             print('Account created')
-            return redirect(url_for('auth.login'))
-    return render_template("register.html")
+            return redirect(url_for('auth.profile'))
+    return render_template("register.html", form=form)
