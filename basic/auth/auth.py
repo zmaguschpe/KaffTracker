@@ -25,7 +25,9 @@ def login():
                 return redirect(url_for('auth.profile'))
                 #return redirect(request.args.get("next") or url_for(".profile"))
             else:
-                return '<p>Incorrect password</p>'
+                return render_template(
+                    '_wrongpw.html')
+            
         else:
             return '<p>Username does not exist</p>'
     #return render_template("login.html", user=current_user)
