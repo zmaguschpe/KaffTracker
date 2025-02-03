@@ -19,18 +19,14 @@ body {
 .center {
     text-align: center;
   }
-.form-group {
 
-}
 
 .form-control{
     background-color: #82f4ca;
     color: black;
 }
 
-.button1 {
 
-}
 
 /* Grundlegendes Styling für die Navbar */
 .navbar {
@@ -63,3 +59,4 @@ body {
 /* Hover-Effekt für die Links */
 .nav-links li a:hover {
   color: #ff6347; /* Farbe ändert sich bei Hover (Tomato) */
+}
