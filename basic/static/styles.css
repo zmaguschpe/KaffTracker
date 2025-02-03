@@ -34,7 +34,7 @@ body {
 
 /* Grundlegendes Styling für die Navbar */
 .navbar {
-  background-color: #333; /* Dunkler Hintergrund */
+  background-color: #38253d; /* Dunkler Hintergrund */
   padding: 10px 20px; /* Innenabstand */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Schatten für Tiefe */
 }
