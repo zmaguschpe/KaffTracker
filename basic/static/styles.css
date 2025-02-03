@@ -31,3 +31,35 @@ body {
 .button1 {
 
 }
+
+/* Grundlegendes Styling für die Navbar */
+.navbar {
+  background-color: #333; /* Dunkler Hintergrund */
+  padding: 10px 20px; /* Innenabstand */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Schatten für Tiefe */
+}
+
+/* Styling für die Liste der Links */
+.nav-links {
+  list-style: none; /* Entfernt die Aufzählungspunkte */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Flexbox für horizontale Anordnung */
+  justify-content: flex-start; /* Links ausrichten */
+}
+
+/* Styling für die einzelnen Links */
+.nav-links li {
+  margin-right: 20px; /* Abstand zwischen den Links */
+}
+
+.nav-links li a {
+  color: white; /* Textfarbe */
+  text-decoration: none; /* Entfernt die Unterstreichung */
+  font-size: 18px; /* Schriftgröße */
+  transition: color 0.3s ease; /* Sanfter Farbübergang */
+}
+
+/* Hover-Effekt für die Links */
+.nav-links li a:hover {
+  color: #ff6347; /* Farbe ändert sich bei Hover (Tomato) */
