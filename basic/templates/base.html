@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+  
     {% include '_bootstrap_link.html' %}
+
+   
     
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="{{url_for('static', filename='date.js')}}"></script>
@@ -15,7 +17,8 @@
   <body>
     <header>
       <p>zm - header</p>
-      {% include '_navbar.html' %}
+            {% include '_navbar.html' %}
+            <!--{% include '_bs_navbar.html' %} -->
     </header>
       <div class="body">{% block content %} {% endblock %}</div>
       

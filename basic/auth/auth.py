@@ -22,7 +22,7 @@ def login():
                 login_user(user, remember=True)
                 #flash("Logged in successfully.", "success")
                 return redirect(url_for('auth.profile'))
-                #return redirect(request.args.get("next") or url_for(".home"))
+                #return redirect(request.args.get("next") or url_for(".profile"))
             else:
                 return '<p>Incorrect password</p>'
         else:
