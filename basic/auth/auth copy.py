@@ -3,33 +3,28 @@ from ..models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from .. import db 
 from flask_login import login_user, login_required, logout_user, current_user
-from .forms import LoginForm
+
 
 auth = Blueprint('auth', __name__, template_folder='templates')
 
 @auth.route('/', methods=['GET', 'POST'])
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
     if request.method == 'POST':
-    #if form.validate_on_submit():
-        username = form.username.data
-        password = form.password.data
-        user = User.query.filter_by(username=username).one()
-     
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        user = User.query.filter_by(username=username).first()
         if user:
             if check_password_hash(user.password, password):
                 login_user(user, remember=True)
-                #flash("Logged in successfully.", "success")
                 return render_template("cu.html", user=current_user)
-                #return redirect(request.args.get("next") or url_for(".home"))
             else:
                 return '<p>Incorrect password</p>'
         else:
             return '<p>Username does not exist</p>'
-    #return render_template("login.html", user=current_user)
-    return render_template("login.html", form=form)
 
+    return render_template("login.html", user=current_user)
 
 @auth.route('/profile')
 def showuser():
@@ -45,10 +40,9 @@ def logout():
 
 @auth.route('/register', methods=['GET', 'POST'])
 def sign_up():
-    form = LoginForm()
     if request.method == 'POST':
-        username = form.username.data
-        password = form.password.data
+        username = request.form.get('username')
+        password = request.form.get('password')
 
         user = User.query.filter_by(username=username).first()
         if user:
