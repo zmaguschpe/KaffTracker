@@ -9,7 +9,7 @@ class User(db.Model, UserMixin):
     time_reg = db.Column(db.DateTime(timezone=True), default=func.now())
     password = db.Column(db.String(999))
     infos = db.relationship('Info')
-    #posts = db.relationship('Post', backref='user', passive_deletes=True)
+    #('Info', backref='user')
 
 class Info(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -17,5 +17,5 @@ class Info(db.Model):
     time = db.Column(db.DateTime(timezone=True), default=func.now())
     date = db.Column(db.Date(), default=func.current_date())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    #author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
+
 
