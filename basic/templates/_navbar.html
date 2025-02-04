@@ -1,12 +1,16 @@
 <nav class="navbar">
   <ul class="nav-links">
     
-    <li><a href="{{ url_for('auth.login') }}">Login</a></li>
-    <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+    {% if current_user.is_authenticated %}
     <li><a href="{{ url_for('bpinput.entry') }}">Input</a></li>
     <li><a href="{{ url_for('bpshow.show') }}">View</a></li>
     <li><a href="{{ url_for('auth.profile') }}">Profile</a></li>
     <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+    {% else %}
+    <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+    <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+    {% endif %}
+    
 
   </ul>
 </nav> 
