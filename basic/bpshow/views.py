@@ -9,8 +9,6 @@ bpshow = Blueprint('bpshow', __name__, template_folder='templates')
 @bpshow.route('/show')
 @login_required
 def show():
-    user=current_user
-
     return render_template('show.html', user=current_user)
 
 

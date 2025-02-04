@@ -2,6 +2,10 @@
 {% block title %}Register{% endblock %}
 {% block content %}
 <h3>Register</h3>
+{% for message in get_flashed_messages() %}
+    {{ message }}
+{% endfor %}
+<!-- in t_base-->
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <form role="form" action="{{ url_for('.register') }}" method="post">
