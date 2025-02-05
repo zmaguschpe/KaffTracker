@@ -1,5 +1,4 @@
-Flask basic framework blueprint template wit SQL-Alchemie db
-guser auth
+Flask Kaffetracker
 
 pip install -r requirements.txt
 

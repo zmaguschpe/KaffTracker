@@ -1,5 +1,0 @@
-currentdate = new Date()
-
-
-
- 

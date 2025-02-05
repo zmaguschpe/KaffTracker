@@ -20,4 +20,9 @@ def entry():
 
     return render_template('i6.html', form=form)
 
+@bpinput.route('/show')
+@login_required
+def show():
+    return render_template('show.html', user=current_user)
+
   

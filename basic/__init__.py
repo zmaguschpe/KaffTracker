@@ -14,17 +14,8 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
-    
-
-
     from .bpinput.views import bpinput
     app.register_blueprint(bpinput, url_prefix='/')
-
-    from .bp2.bp2views import bp2
-    app.register_blueprint(bp2, url_prefix='/bp2')
-
-    from .bpshow.views import bpshow
-    app.register_blueprint(bpshow, url_prefix='/')
 
     from .errors import bp as errors_bp
     app.register_blueprint(errors_bp)
@@ -46,13 +37,6 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
-
-
-
-
-    @app.route('/z')
-    def showz():
-        return 'z'
 
     return app
 
