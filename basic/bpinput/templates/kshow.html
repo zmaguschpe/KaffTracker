@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+<ul>
+  {% for k in current_user.kt|reverse %}
+   <li>
+    {{ k.date }}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}

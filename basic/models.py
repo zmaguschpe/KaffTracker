@@ -9,7 +9,8 @@ class User(db.Model, UserMixin):
     time_reg = db.Column(db.DateTime(timezone=True), default=func.now())
     password = db.Column(db.String(999))
     infos = db.relationship('Info')
-    #('Info', backref='user')
+    kt = db.relationship('KtInfo')
+    #backref='user'??
 
 class Info(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -18,4 +19,17 @@ class Info(db.Model):
     date = db.Column(db.Date(), default=func.current_date())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+class KtInfo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    time = db.Column(db.DateTime(timezone=True), default=func.now())
+    date = db.Column(db.Date(), default=func.current_date())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+class Tracker(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    item = db.Column(db.String(999))
+    cnt = db.Column(db.Integer)
+    time = db.Column(db.DateTime(timezone=True), default=func.now())
+    date = db.Column(db.Date(), default=func.current_date())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 

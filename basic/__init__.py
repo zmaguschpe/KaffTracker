@@ -4,7 +4,7 @@ from os import path
 from flask_login import LoginManager
 
 db = SQLAlchemy()
-DB_NAME = "database.db"
+DB_NAME = "database3.db"
 
 def create_app():
     app = Flask(__name__)
@@ -15,7 +15,7 @@ def create_app():
     db.init_app(app)
 
     from .bpinput.views import bpinput
-    app.register_blueprint(bpinput, url_prefix='/')
+    app.register_blueprint(bpinput, url_prefix='/i')
 
     from .errors import bp as errors_bp
     app.register_blueprint(errors_bp)
