@@ -2,8 +2,8 @@
   <ul class="nav-links">
     
     {% if current_user.is_authenticated %}
-    <li><a href="{{ url_for('bpinput.kth') }}">Kentry</a></li>
-    <li><a href="{{ url_for('bpinput.kshow') }}">KView</a></li>
+    <li><a href="{{ url_for('bpinput.ktt') }}">Kentry</a></li>
+    <li><a href="{{ url_for('bpinput.ktshow') }}">KView</a></li>
     <li><a href="{{ url_for('bpinput.entry') }}">Input</a></li>
     <li><a href="{{ url_for('bpinput.show') }}">View</a></li>
     <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>

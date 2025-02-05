@@ -10,6 +10,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(999))
     infos = db.relationship('Info')
     kt = db.relationship('KtInfo')
+    tracker = db.relationship('Tracker')
     #backref='user'??
 
 class Info(db.Model):

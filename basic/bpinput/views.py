@@ -51,6 +51,11 @@ def ktt():
 def kshow():
     return render_template('kshow.html', user=current_user)
 
+@bpinput.route('/ktshow')
+@login_required
+def ktshow():
+    return render_template('ktshow.html', user=current_user)
+
 
 
 

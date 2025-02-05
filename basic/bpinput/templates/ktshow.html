@@ -3,10 +3,11 @@
 {% block content %}
 
 <ul>
-  {% for info in current_user.infos|reverse %}
+  {% for t in current_user.tracker|reverse %}
    <li>
-    {{ info.date }}  {{ info.data }}
+    {{ t.date }}  {{ t.item }}
   </li>
   {% endfor %}
 </ul>
+
 {% endblock content %}
