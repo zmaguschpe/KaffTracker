@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}-zm- Info 2{% endblock %}
+
+{% block content %}
+    {% for i in values %}
+
+        <p>{{ i[0] }} // // {{ i[1] }}</p>
+    {% endfor %}
+
+{% endblock %}

@@ -1,12 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from ..models import Info, KtInfo, Tracker
+from ..models import Info, KtInfo, Tracker, User
 from .. import db
 from .forms import EntryForm, KtEntryForm
 from flask_login import login_required, current_user
 
 bpinput = Blueprint('bpinput', __name__, template_folder='templates')
 
-
+'''
 @bpinput.route('/ktinput', methods=['GET', 'POST'])
 @login_required
 def ktentry():
@@ -18,7 +18,7 @@ def ktentry():
         return redirect(url_for('.ktentry'))
 
     return render_template('ktinput_wtf.html', form=form)
-
+'''
 @bpinput.route('/kth', methods=['GET', 'POST'])
 @login_required
 def kth():
@@ -27,9 +27,16 @@ def kth():
         db.session.add(new_kt) 
         db.session.commit()
         return redirect(url_for('.kth'))
+    
+    found_info = KtInfo.query.all()
+    lastdate=found_info[-1].date
+    cnt2 = 0
+    for info in found_info:
+        if info.date==lastdate:
+            cnt2 += 1
+    lastdate=str(lastdate)[6:]
+    return render_template('ktinput_htm.html', cnt=cnt2, lastdate = lastdate)
 
-    return render_template('ktinput_htm.html')
-    # lastdate='', cnt='', user=current_user)
 
 @bpinput.route('/ktt', methods=['GET', 'POST'])
 @login_required
@@ -50,6 +57,25 @@ def ktt():
 @login_required
 def kshow():
     return render_template('kshow.html', user=current_user)
+
+@bpinput.route('/cshow')
+def cshow():
+    values=KtInfo.query.all()
+    values.reverse()
+    dates =[]
+    datecounts = []
+    for i in values:
+            if i.date not in dates:
+                dates.append(i.date)
+    print(dates)
+    for date in dates:
+        cnt4=0
+        for i in values:
+            if i.date == date:
+                cnt4 += 1
+        datecounts.append([date, cnt4])
+
+    return render_template('cview.html', values=datecounts)
 
 @bpinput.route('/ktshow')
 @login_required

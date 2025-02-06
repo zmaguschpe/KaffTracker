@@ -3,13 +3,12 @@ h1 {
     text-align: center;
 }
 
-#byid1 {
-    text-align: right;
-    color: red;
+#header {
+  background-color: rgb(187, 217, 249);
   }
 
 body {
-    margin-left: 3em;
+  text-align: center;
 }
 .byclass {
     text-align: center;
@@ -30,9 +29,11 @@ body {
 
 /* Grundlegendes Styling für die Navbar */
 .navbar {
-  background-color: #38253d; /* Dunkler Hintergrund */
+  background-color: #421b4d; /* Dunkler Hintergrund */
   padding: 10px 20px; /* Innenabstand */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Schatten für Tiefe */
+  justify-content: center;
+
 }
 
 /* Styling für die Liste der Links */
@@ -41,7 +42,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex; /* Flexbox für horizontale Anordnung */
-  justify-content: flex-start; /* Links ausrichten */
+  justify-content: center; /* Links ausrichten */
 }
 
 /* Styling für die einzelnen Links */
