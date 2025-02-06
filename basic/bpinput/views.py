@@ -29,12 +29,16 @@ def kth():
         return redirect(url_for('.kth'))
     
     found_info = KtInfo.query.all()
-    lastdate=found_info[-1].date
-    cnt2 = 0
-    for info in found_info:
-        if info.date==lastdate:
-            cnt2 += 1
-    lastdate=str(lastdate)[6:]
+    if found_info != []:
+        lastdate=found_info[-1].date
+        cnt2 = 0
+        for info in found_info:
+                if info.date==lastdate:
+                    cnt2 += 1
+        lastdate=str(lastdate)[6:]
+    else:
+        cnt2 = ""
+        lastdate =""
     return render_template('ktinput_htm.html', cnt=cnt2, lastdate = lastdate)
 
 
